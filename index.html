@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <script src="https://kit.fontawesome.com/f69268e783.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script> -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDB4M9RMLsOIccYSx8sd2ZjlfBANIXoxm8",
+            authDomain: "cimx-e5e5b.firebaseapp.com",
+            databaseURL: "https://cimx-e5e5b.firebaseio.com",
+            projectId: "cimx-e5e5b",
+            storageBucket: "cimx-e5e5b.appspot.com",
+            messagingSenderId: "852573027381",
+            appId: "1:852573027381:web:a6d7a2d6954e33bfa5857c",
+            measurementId: "G-TNVGC9JMFS"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // firebase.analytics();
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {  
+        $("#datepicker").datepicker({         
+        autoclose: true,         
+        todayHighlight: true 
+        }).datepicker('update', new Date());
+        });
+        </script>
+    <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <article>
+        <section>
+            <div class="title">
+                <div class="menu-bar">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="main-page">
+                    <i class="fas fa-house-user"></i>
+                </div>
+                <div class="search-box">
+                    <div class="search">
+                        <form id="search" onsubmit="search(event)">
+                            <i class="fas fa-search"></i>
+                            <input type="text" name="contentSearch" class="search-content" placeholder="Find">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="content">
+            <div class="aside-left">
+                <div class="today">
+                    <i class="far fa-calendar-alt"></i>
+                    <h1>Today</h1>
+                </div>
+            </div>
+            <div class="todo-list">
+                <h1 class="list-title">Today</h1>
+                <div class="due">
+                    <div class="due-list">
+                        <h2 class="overdue">Overdue</h2>
+                        <ul class="list">
+                            <!-- <div class="due-content"id="due-content-0">
+                                <div  class="due-item">
+                                    <button class="btn-primary" id="btn-primary-0"></button>
+                                    <div class="due01">Due 1</div><br>
+                                </div>
+                                <div class="date">Date</div>
+                            </div>
+                            <div class="due-content">
+                                <div class="due-item">
+                                    <button class="btn-primary" onclick="dueFinish()"></button>
+                                    <div class="due01">Due 1</div><br>
+                                </div>
+                                <div class="date">Date</div>
+                            </div>
+                            <div class="due-content">
+                                <div class="due-item">
+                                    <button class="btn-primary"></button>
+                                    <div class="due01">Due 1</div><br>
+                                </div>
+                                <div class="date">Date</div>
+                            </div> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="add-block">
+                    <div class="back" onclick="loadData()">
+                        Back
+                    </div>
+                    <div class="add-due" onclick="openForm()">
+                        Add Task
+                    </div>
+                </div>
+              
+                <div class="add-task-block">
+                    <form class="add-task" id="add-task">
+                        <div class="task-block">
+
+                            <textarea name="task" id="task" cols="30" rows="10" placeholder="Nhập nhiệm vụ"></textarea>
+                            <label>Chọn ngày: </label>
+                            <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                 <input class="form-control" readonly="" type="text" name="date">
+                                  <span class="input-group-addon">
+                                      <i class="glyphicon glyphicon-calendar"></i>
+                                  </span>
+
+                            </div>
+                        </div>
+                        <button class="add">Add Task</button>
+                        <button class="cancel" onclick="closeForm()">Cancel</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </article>
+    <script src="./main.js"></script>
+</body>
+
+</html>
